@@ -2,8 +2,10 @@
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
 // You can return the answer in any order.
 
-public class Solution {
-    public int[] TwoSum(int[] nums, int target) {
+public class Solution 
+{
+    public int[] TwoSum(int[] nums, int target) 
+    {
         for (int i = 0; i < nums.Length; i++)
             for (int j = 0; j < nums.Length; j++)
                 if (i != j && nums[i] + nums[j] == target)
