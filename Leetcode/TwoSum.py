@@ -2,7 +2,7 @@
 # You may assume that each input would have exactly one solution, and you may not use the same element twice.
 # You can return the answer in any order.
 
-def twoSum(self, nums: List[int], target: int) -> List[int]:
+def twoSum(self, nums, target):
     for i, num1 in enumerate(nums):
         for j, num2 in enumerate(nums):
             if i != j and num1 + num2 == target:
