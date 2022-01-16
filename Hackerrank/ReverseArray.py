@@ -1,8 +1,8 @@
 # Reverse an array of integers
 
 def reverseArray(array):
-    output = []
+    rev_array = []
     for i in range(len(array) - 1, -1, -1):
-        output.append(array[i])
+        rev_array.append(array[i])
     
-    return output
+    return rev_array
