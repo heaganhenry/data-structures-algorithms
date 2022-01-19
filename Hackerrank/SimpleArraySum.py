@@ -1,8 +1,8 @@
 # Given an array of integers, find the sum of its elements.
 
-def simpleArraySum(array):
+def simpleArraySum(arr):
     sum = 0
-    for num in array:
+    for num in arr:
         sum += num
     
     return sum
