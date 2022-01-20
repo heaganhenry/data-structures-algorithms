@@ -1,7 +1,5 @@
 # Given a and b, determine their respective comparison points.
-# If a[i] > b[i], then Alice is awarded 1 point.
-# If a[i] < b[i], then Bob is awarded 1 point.
-# If a[i] = b[i], then neither person receives a point.
+# If a[i] > b[i], then Alice is awarded 1 point. If a[i] < b[i], then Bob is awarded 1 point. If a[i] = b[i], then neither person receives a point.
 
 def compareTriplets(a, b):
     alice = 0
