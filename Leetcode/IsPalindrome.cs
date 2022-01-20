@@ -6,6 +6,7 @@ public class Solution
     {
         var numStr = x.ToString();
         var revStr = "";
+        
         for (int i = numStr.Length - 1; i >= 0; i--)
             revStr += numStr[i];
         
