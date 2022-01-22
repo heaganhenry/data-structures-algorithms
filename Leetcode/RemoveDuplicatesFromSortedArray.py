@@ -3,6 +3,9 @@
 # Return the number of unique elements, k, after placing the final result in the first k slots of nums.
 
 def removeDuplicates(self, nums):
+    if len(nums) <= 1:
+            return len(nums)
+
     left = 1
         
     for right in range(1, len(nums)):
