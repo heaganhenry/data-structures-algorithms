@@ -25,6 +25,4 @@ def strStr(self, haystack, needle):
                     break
                 if j == len(needle) - 1:
                     return i
-                j += 1
-                
     return -1
