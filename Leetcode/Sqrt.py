@@ -2,11 +2,11 @@
 # Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.
 
 def mySqrt(self, x):
-    left = 1
-    right = x // 2
-    
     if x < 2:
         return x
+    
+    left = 2
+    right = x // 2
     
     while left <= right:
         mid = (left + right) // 2
