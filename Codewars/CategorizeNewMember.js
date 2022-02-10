@@ -10,5 +10,3 @@ function openOrSenior(members){
   
   return res;
 }
-
-console.log(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]]))
