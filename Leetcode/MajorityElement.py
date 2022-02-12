@@ -3,13 +3,13 @@
 
 class Solution(object):
     def majorityElement(self, nums):
-        res, maj = 0, 0
-        count = {}
+        res, count = 0, 0
+        freq = {}
         
         for n in nums:
-            count[n] = count.get(n, 0) + 1
-            res = n if count[n] > maj else res
-            maj = max(maj, count[n])
+            freq[n] = freq.get(n, 0) + 1
+            res = n if freq[n] > count else res
+            count = max(count, freq[n])
         
         return res
 
@@ -17,7 +17,7 @@ class Solution(object):
 
 class Solution(object):
     def majorityElement(self, nums):
-        res, count = 0
+        res, count = 0, 0
         
         for n in nums:
             if count == 0:
