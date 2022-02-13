@@ -5,31 +5,26 @@ public class Solution
     public IList<IList<int>> LevelOrder(TreeNode root) 
     {
         var result = new List<IList<int>>();
-        
-        if (root == null)
-            return result;
-        
         var queue = new Queue<TreeNode>();
         queue.Enqueue(root);
         
         while (queue.Count != 0)
         {
             int sizeOfQueue = queue.Count;
-            var row = new List<int>();
+            var level = new List<int>();
             
-            while (sizeOfQueue > 0)
+            for (int i = 0; i < sizeOfQueue; i++)
             {
                 var node = queue.Dequeue();
-                if (node.left != null)
+                if (node != null)
+                {
+                    level.Add(node.val);
                     queue.Enqueue(node.left);
-                if (node.right != null)
                     queue.Enqueue(node.right);
-                
-                row.Add(node.val);
-                sizeOfQueue--;
+                }                
             }
-            
-            result.Add(row);
+            if (level.Count != 0)
+                result.Add(level);
         }
         
         return result;
