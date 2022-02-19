@@ -33,7 +33,8 @@ class Solution:
         queue = collections.deque([root])
         
         while queue:
-            for i in range(len(queue)):
+            level = len(queue)
+            for i in range(level):
                 node = queue.popleft()
                 if node.left:
                     queue.append(node.left)
