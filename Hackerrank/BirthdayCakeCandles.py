@@ -2,10 +2,4 @@
 # They will only be able to blow out the tallest of the candles. Count how many candles are tallest.
 
 def birthdayCakeCandles(candles):
-    result = 0
-    tallest = max(candles)
-    for c in candles:
-        if c == tallest:
-            result += 1
-    
-    return result
+    return candles.count(max(candles))
