@@ -6,11 +6,15 @@ public class Solution
 {
     public int[] TwoSum(int[] nums, int target) 
     {
+        var hashMap = new Dictionary<int, int>();
+        
         for (int i = 0; i < nums.Length; i++)
-            for (int j = 0; j < nums.Length; j++)
-                if (i != j && nums[i] + nums[j] == target)
-                    return new int[] {i, j};
-
-        return new int[] {0, 1};
+        {
+            int diff = target - nums[i];
+            if (hashMap.ContainsKey(diff))
+                return new int[]{hashMap[diff], i};
+            hashMap[nums[i]] = i;
+        }
+        return new int[]{0, 0};
     }
 }
