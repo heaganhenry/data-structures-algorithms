@@ -1,7 +1,7 @@
 // Given an array of positive numbers and a positive number ‘k’, find the maximum sum of any contiguous subarray of size ‘k’.
 // Time O(n), Space O(1)
 
-class Solution {
+class MaxSumSubArrayOfSizeK {
   public static int findMaxSumSubArray(int k, int[] arr) {
     int windowStart = 0, windowSum = 0, maxSum = 0;
 
