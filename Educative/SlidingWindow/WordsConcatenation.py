@@ -1,6 +1,6 @@
 # Given a string and a list of words, find all the starting indices of substrings in the given string that are a concatenation of all the given words exactly once without any overlapping of words. 
 # It is given that all words are of the same length.
-# Time O(n * m * len) where n is the number of chars in the string, m is the number of words and len is the length of each word. Space O(n + m)
+# Time O(n * m * len) where n is the number of chars in the string, m is the number of words and len is the length of each word. Space O(m)
 
 def find_word_concatenation(str1, words):
   if len(words) == 0 or len(words[0]) == 0:
