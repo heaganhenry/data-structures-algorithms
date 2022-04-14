@@ -15,11 +15,11 @@ def search_pair(arr, target_sum, left, triplets):
   right = len(arr) - 1
   while left < right:
     current_sum = arr[left] + arr[right]
-    if current_sum == target_sum: # additional condition?
+    if current_sum == target_sum:
       triplets.append([-target_sum, arr[left], arr[right]])
       left += 1
       right -= 1
-      while left < right and arr[left] == arr[left - 1]: # additional condition?
+      while left < right and arr[left] == arr[left - 1]:
         left += 1
       while left < right and arr[right] == arr[right + 1]:
         right -= 1
