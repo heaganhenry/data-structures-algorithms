@@ -7,11 +7,8 @@ class Solution:
         closest = nums[0] + nums[1] + nums[2]
 
         for i in range(len(nums) - 2):
-            if i > 0 and nums[i] == nums[i - 1]:
-                continue
-
             left, right = i + 1, len(nums) - 1
-            while (left < right):
+            while left < right:
                 three_sum = nums[i] + nums[left] + nums[right]
                 if three_sum == target:
                     return three_sum
@@ -21,7 +18,6 @@ class Solution:
 
                 if three_sum < target:
                     left += 1
-
                 elif three_sum > target:
                     right -= 1
 
