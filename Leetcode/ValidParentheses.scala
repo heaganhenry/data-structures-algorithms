@@ -4,17 +4,16 @@
 
 object Solution {
     def isValid(s: String): Boolean = {
-        val map = Map(')' -> '(', '}' -> '{', ']' -> '[')
-        var stack = scala.collection.mutable.Stack[Char]()
+        val map = Map(')' -> '(', ']' -> '[', '}' -> '{')
 
-        for (c <- s) {
-            if (map.contains(c) && !stack.isEmpty && stack.top == map(c)) {
-                stack.pop
-            } else {
-                stack.push(c)
-            }
+        @annotation.tailrec
+        def isValidRec(stack: List[Char], curIndex: Int): Boolean = {
+            if (curIndex == s.length) stack.isEmpty
+            else if (stack.isEmpty && map.contains(s.charAt(curIndex))) false
+            else if (!stack.isEmpty && map.contains(s.charAt(curIndex)) && stack.head == map(s.charAt(curIndex))) isValid(stack.tail, curIndex + 1)
+            else isValid(s.charAt(curIndex) :: stack, curIndex + 1)
         }
 
-        stack.isEmpty
+        isValid(List[Char](), 0)
     }
 }
