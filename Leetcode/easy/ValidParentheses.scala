@@ -4,16 +4,16 @@
 
 object Solution {
     def isValid(s: String): Boolean = {
-        val map = Map(')' -> '(', ']' -> '[', '}' -> '{')
+        val closeToOpen = Map(')' -> '(', ']' -> '[', '}' -> '{')
 
         @annotation.tailrec
-        def isValidRec(stack: List[Char], curIndex: Int): Boolean = {
-            if (curIndex == s.length) stack.isEmpty
-            else if (stack.isEmpty && map.contains(s.charAt(curIndex))) false
-            else if (!stack.isEmpty && map.contains(s.charAt(curIndex)) && stack.head == map(s.charAt(curIndex))) isValidRec(stack.tail, curIndex + 1)
-            else isValidRec(s.charAt(curIndex) :: stack, curIndex + 1)
+        def isValidRec(remaining: String, stack: List[Char]): Boolean = {
+            if (remaining.isEmpty) stack.isEmpty
+            else if (stack.nonEmpty && closeToOpen.contains(remaining.head) && stack.head == closeToOpen(remaining.head)) {
+                isValidRec(remaining.tail, stack.tail)
+            } else isValidRec(remaining.tail, remaining.head :: stack)
         }
 
-        isValidRec(List[Char](), 0)
+        isValidRec(s, List())
     }
 }
