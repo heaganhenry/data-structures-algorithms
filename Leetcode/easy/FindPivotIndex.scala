@@ -7,13 +7,8 @@ object Solution {
         val totalSum = nums.sum
         val leftSums = nums.scanLeft(0)(_ + _)
 
-        @annotation.tailrec
-        def pivotIndexTailrec(curIndex: Int): Int = {
-            if (curIndex == nums.length) -1
-            else if (leftSums(curIndex) == totalSum - leftSums(curIndex) - nums(curIndex)) curIndex
-            else pivotIndexTailrec(curIndex + 1)
+        leftSums.zip(nums).indexWhere {
+            case (left, num) => left == totalSum - num - left
         }
-
-        pivotIndexTailrec(0)
     }
 }
