@@ -2,7 +2,7 @@
 // The string will always have at least 1 number. Output string must be two numbers separated by a single space, and highest number is first.
 
 object Sol {
-  def highAndLow2(numbers: String): String = {
+  def highAndLow(numbers: String): String = {
     val nums = numbers.split(' ').map(_.toInt)
     s"${nums.max} ${nums.min}"
   }
