@@ -2,5 +2,7 @@
 // Given a year, return the century it is in.
 
 object CenturyYear {
-  def centuryFromYear(year: Double): Double = Math.ceil(year / 100)
+  def centuryFromYear(year: Int): Int =
+    if (year % 100 == 0) (year / 100)
+    else (year / 100) + 1
 }
