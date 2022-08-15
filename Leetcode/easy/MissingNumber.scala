@@ -3,9 +3,6 @@
 
 object Solution {
     def missingNumber(nums: Array[Int]): Int = {
-        val numsSum = nums.sum
-        val wholeSum = (0 to nums.length).sum
-
-        wholeSum - numsSum
+        nums.length * (nums.length + 1) / 2 - nums.sum
     }
 }
