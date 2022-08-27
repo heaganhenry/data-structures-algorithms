@@ -3,6 +3,6 @@
 
 object Solution {
     def containsDuplicate(nums: Array[Int]): Boolean = {
-        nums.groupBy(identity).mapValues(_.size).find(pair => pair._2 > 1).isDefined
+        nums.groupBy(identity).exists(_._2.length > 1)
     }
 }
