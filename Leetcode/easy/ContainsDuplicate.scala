@@ -3,6 +3,13 @@
 
 object Solution {
     def containsDuplicate(nums: Array[Int]): Boolean = {
-        nums.groupBy(identity).exists(_._2.length > 1)
+        @annotation.tailrec
+        def containsRec(nums: Array[Int], set: Set[Int]): Boolean = {
+            if (nums.isEmpty) false
+            else if (set.contains(nums.head)) true
+            else containsRec(nums.tail, set + nums.head)
+        }
+
+        containsRec(nums, Set())
     }
 }
