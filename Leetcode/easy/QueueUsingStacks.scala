@@ -11,12 +11,7 @@ class MyQueue() {
     }
 
     def pop(): Int = {
-        if (s2.isEmpty) {
-            while (!s1.isEmpty) {
-                s2.push(s1.pop)
-            }
-        }
-
+        peek()
         s2.pop
     }
 
@@ -33,4 +28,5 @@ class MyQueue() {
     def empty(): Boolean = {
         s1.isEmpty && s2.isEmpty
     }
+
 }
