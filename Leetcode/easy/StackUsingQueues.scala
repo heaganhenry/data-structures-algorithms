@@ -1,4 +1,5 @@
 // Implement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).
+// (Using only one queue)
 
 import scala.collection.mutable.Queue
 
@@ -6,11 +7,10 @@ class MyStack() {
     var queue = Queue[Int]()
 
     def push(x: Int): Unit = {
-        val buffer = Queue(x)
-        while (!queue.isEmpty) {
-            buffer.enqueue(queue.dequeue)
+        queue.enqueue(x)
+        (0 until queue.size - 1).foreach { _ =>
+            queue.enqueue(queue.dequeue())
         }
-        queue = buffer
     }
 
     def pop(): Int = {
