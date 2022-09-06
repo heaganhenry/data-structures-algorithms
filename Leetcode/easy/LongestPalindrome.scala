@@ -3,13 +3,10 @@
 
 object Solution {
     def longestPalindrome(s: String): Int = {
-        val freq = s.groupBy(identity).mapValues(_.length).toMap
-        val longest = freq.foldLeft(0) { case (a, (k, v)) =>
-            if (v % 2 == 0) a + v
-            else a + v - 1
-        }
-
-        if (longest < s.length) longest + 1
-        else longest
+        val charCount = s.groupBy(identity).mapValues(_.length).toMap
+        charCount.foldLeft(0) { case (acc, (char, count)) => {
+            val result = acc + (count / 2) * 2
+            if (result % 2 == 0 && count % 2 == 1) result + 1 else result
+        }}
     }
 }
