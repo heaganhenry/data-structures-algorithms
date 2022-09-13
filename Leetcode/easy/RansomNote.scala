@@ -3,11 +3,6 @@
 
 object Solution {
     def canConstruct(ransomNote: String, magazine: String): Boolean = {
-        def buildMap(string: String): Map[Char, Int] = string.groupBy(identity).mapValues(_.length).toMap
-
-        val ransomMap = buildMap(ransomNote)
-        val magazineMap = buildMap(magazine)
-
-        ransomMap.forall{ case (k, v) => v <= magazineMap.getOrElse(k, 0) }
+        ransomNote.intersect(magazine) == ransomNote
     }
 }
