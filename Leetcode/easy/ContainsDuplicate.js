@@ -2,12 +2,5 @@
 // Time O(n), Space O(n)
 
 const containsDuplicate = function(nums) {
-    const counts = {}
-
-    for (let n of nums) {
-        counts[n] = counts[n] + 1 || 1
-        if (counts[n] > 1) return true
-    }
-
-    return false
+    return new Set(nums).size !== nums.length
 }
