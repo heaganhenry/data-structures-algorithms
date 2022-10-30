@@ -3,20 +3,12 @@
 // Time O(n + m), Space O(n + m)
 
 const mergeTwoLists = function (list1, list2) {
-    let head = new ListNode(-1, null);
-    let curr = head;
+    if (!list1) return list2;
+    if (!list2) return list1;
 
-    while (list1 && list2) {
-        if (list1.val <= list2.val) {
-            curr.next = list1;
-            list1 = list1.next;
-        } else {
-            curr.next = list2;
-            list2 = list2.next;
-        }
-        curr = curr.next;
+    if (list1.val <= list2.val) {
+        return new ListNode(list1.val, mergeTwoLists(list1.next, list2));
+    } else {
+        return new ListNode(list2.val, mergeTwoLists(list1, list2.next));
     }
-    curr.next = (list1 || list2);
-
-    return head.next;
 };
